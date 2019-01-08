@@ -1,0 +1,14 @@
+public class Solution {
+    public string ReverseString(string s) {
+        StringBuilder sb=new StringBuilder();
+        //int k=0;
+        //Char[] arr=new Char[s.Length];
+        for(int i=s.Length-1;i>=0;i--)
+        {
+            sb.Append(s[i]);
+        }
+        
+        return sb.ToString();
+        
+    }
+}
