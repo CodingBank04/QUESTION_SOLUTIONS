@@ -1,0 +1,53 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    
+    public ListNode MiddleNode(ListNode head) {
+        
+        int numNodes=findNum(head);
+        var newNode=head; 
+        var middle=head; 
+        Console.WriteLine(numNodes);
+        int index=1;
+        if(numNodes == 1) return head;
+        for (int i=1; i<=numNodes / 2;i++) // two nodes, return second node; three nodes, return second node
+            {
+                middle = newNode; 
+                newNode = newNode.next;
+            }
+        
+        return middle.next;
+    }
+   
+    public int findNum(ListNode head)
+    {
+        int num=1;
+        while(head.next!=null)
+        {
+           num++;
+           head=head.next;
+          
+        }
+       
+
+        return num;
+    }
+    public ListNode findNode(ListNode head) 
+    {
+        ListNode node=new ListNode(head.val);
+        
+        while(node.next!=null)
+        {
+            node=MiddleNode(head);
+        }
+        return node;
+    }
+    
+    
+}
