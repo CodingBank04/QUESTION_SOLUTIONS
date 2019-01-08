@@ -1,0 +1,37 @@
+public class Solution {
+    public List<int> SelfDividingNumbers(int left, int right) {
+        
+        List<int> ans=new List<int>();
+        
+        for(int i=left;i<=right;i++)
+        {
+            string temp=i.ToString();
+            char[] ch=temp.ToCharArray();
+            bool isDevided=IsDevided(i);
+            
+            
+            if (isDevided==true)
+            {
+                ans.Add(i);
+            }  
+        }
+        return ans;        
+    }
+                  
+    public bool IsDevided(int n)
+    {
+        char[] ch=n.ToString().ToCharArray();
+        
+        foreach(char c in ch)
+        {
+                               
+                   // Console.WriteLine(i+":"+item);
+               if(c == '0' || (n % (c - '0') > 0))
+               {
+                   return false;       
+               }
+        }
+         return  true;
+              
+    }
+}
