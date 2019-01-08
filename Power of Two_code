@@ -1,0 +1,36 @@
+public class Solution {
+    public bool IsPowerOfTwo(int n) {
+        if(n==0 || n==null) return false;
+        if (n==1) return true;
+        int rest=0;
+        int mod=n;
+        int sign=1;
+        if(n<0) sign=-1;
+        int comp=sign;
+        Console.WriteLine(comp);
+        int k=0;
+        while(mod>1)
+        {
+            k++;
+            rest=mod%2;
+            mod=(int)(mod/2);            
+            Console.WriteLine(rest);
+            if(rest==1)
+            {
+                return false;
+            }
+        }
+        for (int i=0;i<=k;i++)
+        {
+            comp=comp*comp;
+        }
+        
+        
+        if(comp!=sign)
+        {
+            return false;
+        }
+        return true;       
+        
+    }
+}
