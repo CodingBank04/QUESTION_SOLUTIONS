@@ -1,0 +1,25 @@
+public class Solution {
+    public int[] DiStringMatch(string S) {
+        int k=0;
+        int n=S.Length;
+        int[] arr=new int[S.Length+1];
+        int t=0;
+        
+        for(int i=0;i<S.Length;i++)
+        {
+            if (S[i]=='I')
+            {
+                arr[i]=k++;
+            }
+            else
+            {
+                arr[i]=n--;
+            }
+        }
+        
+        arr[S.Length]=n;
+        
+        return arr;
+        
+    }
+}
