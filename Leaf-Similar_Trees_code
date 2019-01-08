@@ -1,0 +1,49 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public bool LeafSimilar(TreeNode root1, TreeNode root2) 
+    {
+        StringBuilder sb1=new StringBuilder();
+        StringBuilder sb2=new StringBuilder();
+        if(root1.left==null && root1.right==null )
+        {
+            sb1.Append(root1.val.ToString());
+        }
+        else
+        {
+           Leaves(root1,sb1); 
+        }
+        if(root2.left==null && root2.right==null )
+        {
+            sb2.Append(root2.val.ToString());
+        }
+        else
+        {
+            Leaves(root2,sb2);
+        }
+                      
+        return (sb1.ToString()==sb2.ToString());
+    }
+    
+    public void Leaves(TreeNode root,StringBuilder sb)
+    {
+        if(root!=null)
+        {
+            if(root.left==null && root.right==null )
+            {
+                sb.Append(root.val.ToString());
+            }
+            Leaves(root.left,sb);        
+            Leaves(root.right,sb);
+        }
+    }
+    
+    
+}
