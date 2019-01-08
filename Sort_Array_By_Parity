@@ -1,0 +1,62 @@
+public class Solution {       
+      
+        public  int[] SortArrayByParity(int[] A) {
+        int indexOdd=0;
+        int indexEven=0;
+        int indexResult=0; 
+       for(int i=0;i<A.Length;i++)
+        {
+            if (A[i]%2==1)
+            {
+              indexOdd++;
+            }
+            
+            if (A[i]%2==0)
+            {
+              indexEven++;               
+            }
+        }
+       
+        int[] even=new int[indexEven];
+        int[] odd=new int[indexOdd];
+        int[] result=new int[A.Length];
+        indexOdd=0;
+        indexEven=0;
+        indexResult=0;
+        for(int i=0;i<A.Length;i++)
+        {
+            if (A[i]%2==1)
+            {
+                odd[indexOdd]=A[i]; 
+                Console.WriteLine("tekil:" +odd[indexOdd]);
+                indexOdd++;
+            }
+            
+            if (A[i]%2==0)
+            {
+                even[indexEven]=A[i];
+                Console.WriteLine("cift:" +even[indexEven]);
+                indexEven++;
+               
+            }
+        }
+       
+      result=even.Concat(odd).ToArray(); 
+       /*  for(int i=0;i<even.Length;i++)
+        {
+           result[indexResult]=even[i];  
+             Console.WriteLine("ciftler:" +even[i]);
+           indexResult++;
+         
+        }
+        for(int i=0;i<odd.Length;i++)
+        {
+             result[indexResult]=odd[i]; 
+             Console.WriteLine("tekler:" +odd[i]);
+             indexResult++;
+        }*/
+        return result;
+    }
+        
+    
+} 
