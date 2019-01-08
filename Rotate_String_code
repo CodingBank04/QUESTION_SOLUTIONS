@@ -1,0 +1,17 @@
+
+public class Solution {
+    public bool RotateString(string A, string B) 
+    {
+        if (A==B) return true;
+        for(int i=0;i<A.Length;i++)
+        {
+            char c=A[0];
+            A=A+c;
+            A=A.Substring(1);
+            if(A==B) return true;
+            
+        }
+        return false;
+        
+    }
+}
