@@ -1,0 +1,35 @@
+public class Solution {
+    public string[] FindWords(string[] words) {
+        Dictionary<char,int> map=new Dictionary<char,int>();
+        map.Add('q',1);map.Add('w',1);map.Add('e',1);                                                   map.Add('r',1);map.Add('t',1);map.Add('y',1);
+        map.Add('u',1);map.Add('i',1);map.Add('o',1);
+        map.Add('p',1);map.Add('a',2);map.Add('s',2);                                                   map.Add('d',2);map.Add('f',2);map.Add('g',2);
+        map.Add('h',2);map.Add('j',2);map.Add('k',2);
+        map.Add('l',2);map.Add('z',3);map.Add('x',3);
+        map.Add('c',3);map.Add('v',3);map.Add('b',3);
+        map.Add('n',3);map.Add('m',3);
+        
+        List<string> list=new List<string>();
+        
+        for(int i=0; i<words.Length;i++)
+        {
+            bool b=true;
+            for(int k=0;k<words[i].Length;k++)
+            {
+                int val= map[Char.ToLower(words[i][0])];
+                
+                if(map[Char.ToLower(words[i][k])]!=val)
+                {
+                    b=false;
+                }
+                
+            }
+            if(b)
+            {
+                list.Add(words[i]);
+            }
+        }
+        return list.ToArray();
+        
+    }
+}
