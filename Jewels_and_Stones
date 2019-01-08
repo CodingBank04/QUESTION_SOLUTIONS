@@ -1,0 +1,21 @@
+public class Solution {    
+    
+    public int NumJewelsInStones(string J, string S) {
+        
+        HashSet<char> hs=new HashSet<char>();
+        
+        foreach(var j in J)
+        {
+            hs.Add(j);            
+        }
+        int count=0;
+        
+            for(int i=0;i<S.Length;i++)
+            {
+                if (hs.Contains(S[i]))
+                    count=count+1;                    
+            }            
+       
+        return count;
+    }
+}
