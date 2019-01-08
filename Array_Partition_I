@@ -1,0 +1,18 @@
+public class Solution {
+    public int ArrayPairSum(int[] nums) {
+       // int[] sortedArray=new int[nums.Length];
+        int temp=0;
+        int sum=0;
+        Array.Sort(nums); 
+        
+        for(int k=0;k<nums.Length;k++)
+        {            
+            if(k%2==0)
+            {
+                sum=sum+nums[k];
+               // Console.WriteLine("+ "+sum);
+            }
+        }
+        return sum;
+    }
+}
