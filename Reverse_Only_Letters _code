@@ -1,0 +1,46 @@
+public class Solution {
+    public string ReverseOnlyLetters(string S) {
+      /*  
+         Stack<char> letters = new Stack<char>();
+        foreach (var c in S.ToCharArray())
+            if (Char.IsLetter(c))
+                letters.Push(c);
+
+        StringBuilder ans = new StringBuilder();
+        foreach (var c in S.ToCharArray()) {
+            if (Char.IsLetter(c))
+                ans.Append(letters.Pop());
+            else
+                ans.Append(c);
+        }
+
+        return ans.ToString();
+        
+    }
+       */ 
+        int j = S.Length-1;
+        StringBuilder Sb=new StringBuilder();
+        int k=0;
+       
+        for(int i=0;i<S.Length;i++)
+        {
+            if(!Char.IsLetter(S[i]))
+            {
+               Sb.Append(S[i]);
+                j--;
+            }
+            else
+            {
+                if(Char.IsLetter(S[j]))
+                {
+                    Sb.Append(S[j]);
+                    j--; 
+                }
+                
+                    
+            }
+        }
+        return Sb.ToString();
+    }
+      
+}
