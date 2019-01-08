@@ -1,0 +1,46 @@
+public class Solution {
+    public int ProjectionArea(int[][] grid) {
+    int[] cols=new int[grid[0].Length];
+    int[] rows=new int[grid.Length];
+    int x=0;
+    int y=0;
+    int z=0;
+    int xx=0;
+    int yy=0;
+    int zz=0;
+           
+        for(int i=0;i<grid.Length;i++)
+        { 
+            for(int n=0;n<grid[i].Length;n++)
+            {
+                if (grid[i][n]>0) z+=1;
+                
+                if(rows[i]<grid[i][n])
+                {
+                    rows[i]=grid[i][n];
+                }  
+                if(cols[n]<grid[i][n])
+                {
+                    cols[n]=grid[i][n];
+                }                
+            }
+        }
+       
+       for(int m=0;m<rows.Length;m++)
+            { 
+                    xx+=rows[m];
+                         
+                
+            }
+        for(int j=0;j<cols.Length;j++)
+            { 
+                    yy+=cols[j];
+                         
+                
+            }
+        return xx+yy+z;
+            
+        
+        
+    }
+}
