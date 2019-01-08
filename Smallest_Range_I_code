@@ -1,0 +1,16 @@
+public class Solution {
+    public int SmallestRangeI(int[] A, int K) {
+        int max=A.Max();
+        int min=A.Min();
+        
+        if(max-min-2*K >0)
+        {
+            return max-min-2*K;
+        }
+        else if(max-min-2*K<=0)
+        {
+            return 0;
+        }  
+          return 0;
+     }
+}
