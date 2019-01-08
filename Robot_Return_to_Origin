@@ -1,0 +1,23 @@
+public class Solution {
+    public bool JudgeCircle(string moves) {
+        int countL=0;
+        int countR=0;
+        int countU=0;
+        int countD=0 ; 
+        bool isInOrigin = true;
+        
+        foreach(char item in moves)
+        {
+            if (item=='L') countL=countL+1;
+            if (item=='R') countR=countR+1;
+            if (item=='U') countU=countU+1;
+            if (item=='D') countD=countD+1;
+        }
+        
+        if(countL!=countR || countU!=countD) 
+        {
+            isInOrigin=false;
+        }   
+        return isInOrigin;
+    }
+}
