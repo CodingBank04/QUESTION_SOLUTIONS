@@ -1,0 +1,46 @@
+public class Solution {
+    public IList<string> SubdomainVisits(string[] cpdomains) {
+        
+        List<string> list=new List<string>();
+        Dictionary<string,int> dict=new Dictionary<string,int>();
+                
+    //    if (cpdomains.Length == 1) return list.Add(cpdomains[0]);
+    //    if (cpdomains.Length == 0) return list.Add("");
+        
+        for(int i=0;i<cpdomains.Length;i++)
+        {
+            string[] firstArr=cpdomains[i].Split(" ");
+            int num=Convert.ToInt32(firstArr[0]);
+            string[] secondArr= firstArr[1].Split(".");
+            string str="";
+            
+            for(int j=secondArr.Length-1;j>=0;j--)
+            {
+                Console.WriteLine(str);
+                if(j==secondArr.Length-1)
+                {
+                   str=secondArr[j];
+                }
+                else
+                {
+                   str=secondArr[j]+ "."+str; 
+                }
+                
+                if(dict.ContainsKey(str))
+                {
+                    dict[str] = dict[str] + num;
+                }
+                else
+                {
+                    dict.Add(str,num);
+                }           
+            }
+        }
+                   
+        foreach(KeyValuePair<string, int> entry in dict)
+        {
+            list.Add(entry.Value.ToString()+" "+entry.Key);
+        } 
+        return list;
+    }
+}
