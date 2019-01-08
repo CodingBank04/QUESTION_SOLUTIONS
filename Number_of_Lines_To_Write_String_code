@@ -1,0 +1,27 @@
+public class Solution {
+  public int[] NumberOfLines(int[] widths, string S) {
+
+    int sum=0;
+    int sumOld=0;
+    int line=1;
+    int last=0;
+    int index=-1;
+    for(int i=0;i<S.Length;i++)
+    {
+        index=S[i]-'a';
+        sumOld=sum;
+        sum=sum+widths[index];
+        if(sum>100)
+        {
+            line++;
+            sum=widths[index];
+        }  
+     }
+    Console.WriteLine(sum);
+    last=sum-(line-1)*100;
+    int[] arr=new int[2];
+    arr[0]=line;
+    arr[1]=sum;
+        return arr;
+  }
+}
