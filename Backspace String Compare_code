@@ -1,0 +1,56 @@
+public class Solution {
+    public bool BackspaceCompare(string S, string T) 
+    {
+        Stack<char> st1=new Stack<char>();
+        Stack<char> st2=new Stack<char>();
+        StringBuilder sb1=new StringBuilder();
+        StringBuilder sb2=new StringBuilder();
+        
+        for(int i=0; i<S.Length;i++)
+        {
+            if(S[i]=='#')
+            {
+                if (st1.Count>0)
+                {
+                    st1.Pop();
+                }          
+     
+            }
+            else
+            {
+                st1.Push(S[i]);
+            }
+        }
+        
+        for(int j=0; j<T.Length;j++)
+        {
+             if(T[j]=='#')
+            {
+                 if (st2.Count>0)
+                {
+                    st2.Pop();
+                 }
+                
+            }
+            else
+            {
+                st2.Push(T[j]);
+            }
+            
+        }
+        
+    while (st1.Count>0)
+    {
+        sb1.Append(st1.Pop());
+        
+    }
+    while (st2.Count>0)
+    {
+        sb2.Append(st2.Pop());
+    }
+        Console.WriteLine(sb1.ToString() +"==>"+sb2.ToString());
+     
+    return (sb1.ToString() == sb2.ToString());
+        
+    }
+}
