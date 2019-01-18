@@ -1,0 +1,15 @@
+public class Solution {
+public int Fib(int N)
+{
+  Dictionary<int,int> dict=new Dictionary<int,int>();
+  dict.Add(0,0);
+  dict.Add(1,1);
+
+    for(int i=2; i<31;i++)
+    {
+        dict.Add(i,dict[i-1]+dict[i-2]);            
+    }
+    return dict[N];       
+    
+  }
+}
